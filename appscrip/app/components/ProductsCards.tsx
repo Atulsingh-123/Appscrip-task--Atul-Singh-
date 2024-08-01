@@ -5,10 +5,10 @@ import ProductCard from './Products';
 import { useSidebar } from '../context/Context';
 import FilterSidebar from './FilterSidebar';
 
-interface Products{
-    id:number;
-    title : string,
-    image:any;
+interface Products {
+    id: number;
+    title: string,
+    image: any;
 }
 // const products = [
 //     { title: 'Product Name', imageUrl: 'https://picsum.photos/200/300' },
@@ -37,12 +37,12 @@ const ProductsCards: React.FC = () => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData()
-    },[])
+    }, [])
 
     return (
-        <div className={`w-full flex mx-auto mt-10 ${isSidebarOpen ? 'md:w-[95%] lg:w-[90%]' : 'md:w-[95%] lg:w-[90%]'}`}>
+        <div className={`w-full flex mx-auto mt-5 ${isSidebarOpen ? 'md:w-[95%] lg:w-[90%]' : 'md:w-[95%] lg:w-[90%]'}`}>
             {/* Sidebar */}
             {isSidebarOpen && (
                 <div className="w-1/4">
@@ -51,8 +51,7 @@ const ProductsCards: React.FC = () => {
             )}
 
             {/* Product Cards */}
-            <div className={`grid grid-cols-1 sm:grid-cols-2 ${isSidebarOpen ? 'md:grid-cols-3' : 'md:grid-cols-4'} gap-8 ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}>
-                {productData.map((product, index) => (
+            <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-${isSidebarOpen ? '3' : '4'} gap-2 ${isSidebarOpen ? 'w-3/4' : 'w-full'}`}>                {productData.map((product, index) => (
                     <ProductCard
                         key={index}
                         title={product.title}

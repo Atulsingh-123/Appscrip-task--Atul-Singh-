@@ -18,7 +18,7 @@ const Filter: React.FC = () => {
 
     return (
         <div>
-            <div className='w-full md:w-[95%] lg:w-[90%] mx-auto border-y-2 border-gray-200 mt-10'>
+            <div className='w-full md:w-[95%] lg:w-[90%] mx-auto border-y-2  border-gray-200 mt-5'>
                 {/* Desktop View */}
                 <div className="hidden md:flex justify-between items-center py-4" style={{ height: '88px' }}>
                     <div className="flex items-center">
@@ -48,7 +48,7 @@ const Filter: React.FC = () => {
                             <h3 className='text-gray-500 font-simplon-norm text-lg font-bold leading-[40px] text-right'>
                                 {selectedOption}
                             </h3>
-                             <span className="ml-2">
+                            <span className="ml-2">
                                 <IoIosArrowDown className="text-[#292D32]" style={{ fontSize: '1rem', strokeWidth: 0 }} />
                             </span>
                         </button>
@@ -91,44 +91,49 @@ const Filter: React.FC = () => {
             </div>
 
             {/* Mobile View */}
-            <div className="flex md:hidden justify-between items-center py-4 border-y-2 border-gray-200">
-                <button className="text-gray-700">FILTER</button>
+            <div className="flex md:hidden justify-between items-center py-4 border-y-2 border-gray-200 w-[375px] h-[41px] mx-auto">
+                <button className="'text-gray-500 font-simplon-norm text-lg font-bold leading-[40px] text-left ml-4">FILTER</button>
                 <div className="border-r border-gray-300 h-6 mx-4"></div>
-                <div className="relative">
+                <div className="relative mr-4">
                     <button
                         className="text-gray-700 flex items-center"
                         onClick={toggleDropdown}
                     >
-                        {selectedOption} <span className="ml-2">▼</span>
+                        <h3 className='text-gray-500 font-simplon-norm text-lg font-bold leading-[40px] text-right'>
+                            {selectedOption}
+                        </h3>
+                        <span className="ml-2">
+                            <IoIosArrowDown className="text-[#292D32]" style={{ fontSize: '1rem', strokeWidth: 0 }} />
+                        </span>
                     </button>
                     {isDropdownOpen && (
                         <div className="absolute right-0 mt-2 w-[235px] h-[324px] bg-white border border-gray-200 shadow-lg z-10">
                             <button
-                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm  mt-3"
                                 onClick={() => selectOption('RECOMMENDED')}
                             >
                                 {selectedOption === 'RECOMMENDED' && '✔ '}RECOMMENDED
                             </button>
                             <button
-                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm mt-3 font-simplon-norm font-normal"
                                 onClick={() => selectOption('NEWEST FIRST')}
                             >
                                 {selectedOption === 'NEWEST FIRST' && '✔ '}NEWEST FIRST
                             </button>
                             <button
-                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm mt-3 font-simplon-norm font-normal"
                                 onClick={() => selectOption('POPULAR')}
                             >
                                 {selectedOption === 'POPULAR' && '✔ '}POPULAR
                             </button>
                             <button
-                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm mt-3 font-simplon-norm font-normal"
                                 onClick={() => selectOption('PRICE : HIGH TO LOW')}
                             >
                                 {selectedOption === 'PRICE : HIGH TO LOW' && '✔ '}PRICE : HIGH TO LOW
                             </button>
                             <button
-                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm"
+                                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 text-sm mt-3 font-simplon-norm font-normal"
                                 onClick={() => selectOption('PRICE : LOW TO HIGH')}
                             >
                                 {selectedOption === 'PRICE : LOW TO HIGH' && '✔ '}PRICE : LOW TO HIGH
@@ -137,6 +142,7 @@ const Filter: React.FC = () => {
                     )}
                 </div>
             </div>
+
         </div>
     );
 };
